@@ -58,13 +58,13 @@ class Planar:
         bpy.ops.object.mode_set(mode=mode)
 
     @staticmethod
-    def plane_normal(plane='XY'):
+    def plane_normal(plane='Z'):
         # get normal by plane
-        if plane == 'XZ':
+        if plane == 'Y':
             return Vector((0.0, 1.0, 0.0))
-        elif plane == 'YZ':
+        elif plane == 'X':
             return Vector((1.0, 0.0, 0.0))
-        else:   # 'XY'
+        else:   # 'Z'
             return Vector((0.0, 0.0, 1.0))
 
     @staticmethod
@@ -109,11 +109,11 @@ class Planar_OT_select_edges(Operator):
     plane = EnumProperty(
         name='Plane',
         items=[
-            ('XY', 'XY', 'XY', '', 0),
-            ('YZ', 'YZ', 'YZ', '', 1),
-            ('XZ', 'XZ', 'XZ', '', 2)
+            ('Z', 'Z', 'Z', '', 0),
+            ('X', 'X', 'X', '', 1),
+            ('Y', 'Y', 'Y', '', 2)
         ],
-        default='XY'
+        default='Z'
     )
 
     def execute(self, context):
@@ -152,11 +152,11 @@ def register(ui=True):
     Scene.planar_props_plane = EnumProperty(
         name='Plane',
         items=[
-            ('XY', 'XY', 'XY', '', 0),
-            ('YZ', 'YZ', 'YZ', '', 1),
-            ('XZ', 'XZ', 'XZ', '', 2)
+            ('Z', 'Z', 'Z', '', 0),
+            ('X', 'X', 'X', '', 1),
+            ('Y', 'Y', 'Y', '', 2)
         ],
-        default='XY'
+        default='Z'
     )
     Scene.planar_props_threshold = FloatProperty(
         name='Threshold',
