@@ -89,7 +89,8 @@ class Planar:
             operator='planar.select_edges',
             icon='MANIPUL'
         )
-        layout.prop(
+        row = layout.row()
+        row.prop(
             data=context.scene,
             property='planar_props_plane',
             expand=True
